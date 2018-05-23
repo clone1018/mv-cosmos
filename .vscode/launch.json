@@ -3,6 +3,14 @@
   "configurations": [
     {
       "type": "mix_task",
+      "request": "launch",
+      "name": "mix no halt",
+      "task": "run",
+      "taskArgs": ["--no-halt"],
+      "projectDir": "${workspaceRoot}"
+    },
+    {
+      "type": "mix_task",
       "name": "mix (Default task)",
       "request": "launch",
       "projectDir": "${workspaceRoot}"
