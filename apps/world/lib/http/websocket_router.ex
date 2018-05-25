@@ -28,7 +28,7 @@ defmodule World.Http.WebsocketRouter do
 
     {:ok, parsed} = Poison.decode(message)
 
-    [module, method] = action_list[hd(parsed)]
+    [module, method] = Map.fetch!(action_list, hd(parsed))
     apply(module, method, tl(parsed))
   end
 end

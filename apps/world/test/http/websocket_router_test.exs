@@ -11,7 +11,9 @@ defmodule World.Http.WebsocketRouterTest do
   test "doesnt route out of bounds action" do
     inp = "[1234567890,1,2,3,4]"
 
-    assert_raise(MatchError, World.Http.WebsocketRouter.handle(inp, %{}))
+    assert_raise(KeyError, fn ->
+      World.Http.WebsocketRouter.handle(inp, %{})
+    end)
   end
 
 end
