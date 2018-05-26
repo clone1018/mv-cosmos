@@ -4,8 +4,10 @@ defmodule Cosmos.MixProject do
   def project do
     [
       apps_path: "apps",
-      start_permanent: Mix.env() == :prod,
-      deps: deps()
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
@@ -15,6 +17,8 @@ defmodule Cosmos.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    []
+    [
+      {:excoveralls, "~> 0.6"}
+    ]
   end
 end
