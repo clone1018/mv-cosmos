@@ -1,18 +1,18 @@
 defmodule World.MapManager do
 
-  def map_enter(game_id, player_id) do
+  def map_enter(state, game_id, player_id) do
 
   end
 
-  def spawn(map_id, x, y, characterIndex, characterName, direction, moveSpeed, moveFrequency) do
+  def spawn(state, map_id, x, y, characterIndex, characterName, direction, moveSpeed, moveFrequency) do
 
   end
 
-  def despawn() do
+  def despawn(state) do
 
   end
 
-  def move(x, y, characterIndex, characterName, direction, moveSpeed, moveFrequency) do
+  def move(state, x, y, characterIndex, characterName, direction, moveSpeed, moveFrequency) do
 
   end
 

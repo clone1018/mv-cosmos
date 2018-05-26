@@ -4,8 +4,12 @@ defmodule World do
   require Logger
 
   def start(_type, _args) do
+    import Supervisor.Spec, warn: false
+
     # List all child processes to be supervised
     children = [
+      supervisor(Registry, [:unique, :player_registry]),
+      supervisor(World.PlayerSupervisor, []),
       Plug.Adapters.Cowboy.child_spec(
         scheme: :http,
         plug: World.Http.Router,
