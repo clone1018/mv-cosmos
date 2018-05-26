@@ -19,11 +19,11 @@ defmodule World.Http.WebsocketRouter do
     # This is essentially our temporary router, based on the int passed
     # by the client, route to a specific action, pass tail end into function
     action_list = %{
-      0 => [World.PlayerManager, :connect],
-      1 => [World.MapManager, :map_enter],
-      2 => [World.MapManager, :spawn],
-      3 => [World.MapManager, :despawn],
-      4 => [World.MapManager, :move]
+      0 => [World.Endpoints.PlayerEndpoints, :connect],
+      1 => [World.Endpoints.MapEndpoints, :map_enter],
+      2 => [World.Endpoints.MapEndpoints, :spawn],
+      3 => [World.Endpoints.MapEndpoints, :despawn],
+      4 => [World.Endpoints.MapEndpoints, :move]
     }
 
     {:ok, parsed} = Poison.decode(message)

@@ -1,4 +1,4 @@
-defmodule World.PlayerManager do
+defmodule World.Endpoints.PlayerEndpoints do
 
   def connect(state, game_id, player_id) do
     {:ok, _pid} = World.Player.start_link(game_id)

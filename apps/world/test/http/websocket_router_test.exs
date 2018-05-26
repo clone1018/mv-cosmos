@@ -1,6 +1,6 @@
 defmodule World.Http.WebsocketRouterTest do
   use ExUnit.Case
-  doctest World.MapManager
+  doctest World.Http.WebsocketRouter
 
   test "routes simple connect" do
     inp = "[0,123,456]"
