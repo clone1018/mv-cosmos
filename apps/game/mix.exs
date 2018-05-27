@@ -1,9 +1,9 @@
-defmodule World.MixProject do
+defmodule Game.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :world,
+      app: :game,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
@@ -19,19 +19,16 @@ defmodule World.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {World, []}
+      mod: {Game, []}
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:game, in_umbrella: true},
-      {:plug, "~> 1.2"},
-      {:cowboy, "~> 1.0"},
-      {:poison, "~> 3.1"},
-      {:web_socket, "~> 0.1.0"},
-      {:jsex, "~> 2.0"}
+      {:ecto, "~> 2.0"},
+      {:postgrex, "~> 0.11"},
+      {:poison, "~> 3.1"}
     ]
   end
 end

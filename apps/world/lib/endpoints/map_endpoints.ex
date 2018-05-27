@@ -6,8 +6,6 @@ defmodule World.Endpoints.MapEndpoints do
 
   # characterIndex, characterName, direction, moveSpeed, moveFrequency
   def spawn(state, map_id, player_id, x, y) do
-    {:ok, _} = World.MapSupervisor.find_or_create_process(map_id)
-
     {state, {}}
   end
 

@@ -22,7 +22,15 @@ defmodule World.MapSupervisor do
   @doc """
   Starts the supervisor.
   """
-  def start_link, do: Supervisor.start_link(__MODULE__, [], name: __MODULE__)
+  def start_link do
+    res = Supervisor.start_link(__MODULE__, [], name: __MODULE__)
+
+    Enum.each(Game.Map |> Game.Repo.all(), fn(map) ->
+      World.MapSupervisor.find_or_create_process(map.id)
+    end)
+
+    res
+  end
 
 
   @doc """
