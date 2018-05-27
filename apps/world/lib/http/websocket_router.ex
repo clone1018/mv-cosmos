@@ -33,6 +33,8 @@ defmodule World.Http.WebsocketRouter do
 
     out = %{}
 
-    {:reply, {:text, Poison.encode!(out)}, state}
+    # :ok = WebSocket.Events.broadcast!(:handle, {:text, message})
+
+    {:reply, {:text, message}, state}
   end
 end

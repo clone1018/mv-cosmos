@@ -11,7 +11,7 @@ defmodule World.Map do
   require Logger
 
   @map_registry_name :map_registry
-  @process_lifetime_ms 10 # 24 hours in milliseconds - make this number shorter to experiement with process termination
+  @process_lifetime_ms 86_400_000 # 24 hours in milliseconds - make this number shorter to experiement with process termination
 
   # Just a simple struct to manage the state for this genserver
   # You could add additional attributes here to keep track of for a given account

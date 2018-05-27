@@ -5,12 +5,12 @@ defmodule World.PlayerTest do
   test "player is created" do
     assert World.Player.whereis(1) == nil
 
-    {:ok, pid} = World.Player.start_link(1)
-    assert World.Player.whereis(1) == pid
+    {:ok, id} = World.PlayerSupervisor.find_or_create_process(1)
+    assert id == 1
   end
 
   test "player position can be updated" do
-    World.Player.start_link(2)
+    World.PlayerSupervisor.find_or_create_process(2)
 
     details = World.Player.details(2)
     assert details.map_id == 0
