@@ -8,18 +8,16 @@ use Mix.Config
 # if you want to provide default values for your application for
 # 3rd-party users, it should be done in your "mix.exs" file.
 
-# You can configure your application as:
-#
-#     config :world, key: :value
-#
-# and access this configuration in your application as:
-#
-#     Application.get_env(:world, :key)
-#
-# You can also configure a 3rd-party app:
-#
-#     config :logger, level: :info
-#
+config :world, World.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "world",
+  username: "clone1018",
+  password: "",
+  hostname: "localhost",
+  port: 5433
+
+config :world,
+  ecto_repos: [World.Repo]
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment

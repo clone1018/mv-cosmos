@@ -8,9 +8,10 @@ defmodule World do
 
     # List all child processes to be supervised
     children = [
-      supervisor(Registry, [:unique, :player_registry], id: :player_worker),
+      World.Repo,
+      # supervisor(Registry, [:unique, :player_registry], id: :player_worker),
       supervisor(Registry, [:unique, :map_registry], id: :map_worker),
-      supervisor(World.PlayerSupervisor, []),
+      # supervisor(World.PlayerSupervisor, []),
       supervisor(World.MapSupervisor, []),
       Plug.Adapters.Cowboy.child_spec(
         scheme: :http,

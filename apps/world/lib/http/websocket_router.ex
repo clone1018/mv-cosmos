@@ -14,7 +14,8 @@ defmodule World.Http.WebsocketRouter do
   end
 
   def handle(message, state) do
-    Logger.debug("Incoming: " <> message)
+    ip_addr = state.conn.remote_ip |> :inet.ntoa() |> to_string()
+    Logger.debug("Incoming: " <> message <> " from " <> ip_addr)
 
     # This is essentially our temporary router, based on the int passed
     # by the client, route to a specific action, pass tail end into function
@@ -23,7 +24,8 @@ defmodule World.Http.WebsocketRouter do
       1 => [World.Endpoints.MapEndpoints, :map_enter],
       2 => [World.Endpoints.MapEndpoints, :spawn],
       3 => [World.Endpoints.MapEndpoints, :despawn],
-      4 => [World.Endpoints.MapEndpoints, :move]
+      4 => [World.Endpoints.MapEndpoints, :move],
+      5 => [World.Endpoints.PlayerEndpoints, :refresh]
     }
 
     {:ok, parsed} = Poison.decode(message)
@@ -31,10 +33,10 @@ defmodule World.Http.WebsocketRouter do
     [module, method] = Map.fetch!(action_list, hd(parsed))
     {state, out} = apply(module, method, [state] ++ tl(parsed))
 
-    out = %{}
+    # self() or state.conn.owner
+    # :ok = WebSocket.Events.broadcast(:handle, {:text, message}, self())
 
-    # :ok = WebSocket.Events.broadcast!(:handle, {:text, message})
-
-    {:reply, {:text, message}, state}
+    #{:reply, {:text, message}, state}
+    {:reply, {:text, "{}"}, state}
   end
 end

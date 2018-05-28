@@ -31,7 +31,9 @@ defmodule World.MixProject do
       {:cowboy, "~> 1.0"},
       {:poison, "~> 3.1"},
       {:web_socket, "~> 0.1.0"},
-      {:jsex, "~> 2.0"}
+      {:jsex, "~> 2.0"},
+      {:ecto, "~> 2.0"},
+      {:postgrex, "~> 0.11"},
     ]
   end
 end

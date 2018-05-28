@@ -5,7 +5,16 @@ defmodule World.Endpoints.MapEndpoints do
   end
 
   # characterIndex, characterName, direction, moveSpeed, moveFrequency
-  def spawn(state, map_id, player_id, x, y) do
+  def spawn(state, player_id, map_id, x, y) do
+    player = World.Player |> World.Repo.get(player_id)
+
+    changeset = World.Player.changeset(player, %{
+      map_id: map_id,
+      x: x,
+      y: y
+    })
+    {:ok, _person} = World.Repo.update(changeset)
+
     {state, {}}
   end
 
@@ -13,8 +22,17 @@ defmodule World.Endpoints.MapEndpoints do
     {state, {}}
   end
 
-  def move(state, map_id, player_id, x, y, direction, moveSpeed, moveFrequency) do
-    World.Player.update_position(player_id, map_id, x, y)
+  def move(state, player_id, map_id, x, y, direction, move_speed, move_frequency) do
+    player = World.Player |> World.Repo.get(player_id)
+
+    changeset = World.Player.changeset(player, %{
+      x: x,
+      y: y,
+      direction: direction,
+      move_speed: move_speed,
+      move_frequency: move_frequency
+    })
+    {:ok, _person} = World.Repo.update(changeset)
 
     {state, {}}
   end
