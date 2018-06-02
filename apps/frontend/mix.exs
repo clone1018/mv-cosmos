@@ -36,6 +36,7 @@ defmodule Frontend.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:game, in_umbrella: true},
       {:phoenix, "~> 1.3.2"},
       {:phoenix_pubsub, "~> 1.0"},
       {:gettext, "~> 0.11"},

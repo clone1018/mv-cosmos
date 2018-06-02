@@ -13,11 +13,11 @@ defmodule World do
       supervisor(Registry, [:unique, :map_registry], id: :map_worker),
       # supervisor(World.PlayerSupervisor, []),
       supervisor(World.MapSupervisor, []),
-      Plug.Adapters.Cowboy.child_spec(
-        scheme: :http,
-        plug: World.Http.Router,
-        options: [port: 8101, dispatch: World.Http.Router.dispatch_table()]
-      )
+      # Plug.Adapters.Cowboy.child_spec(
+      #   scheme: :http,
+      #   plug: World.Http.Router,
+      #   options: [port: 8101, dispatch: World.Http.Router.dispatch_table()]
+      # )
     ]
 
     Logger.info("Started World Server")

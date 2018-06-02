@@ -2,7 +2,7 @@ defmodule FrontendWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", FrontendWeb.RoomChannel
+  channel "map:*", FrontendWeb.MapChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
