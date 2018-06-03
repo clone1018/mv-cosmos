@@ -107,7 +107,6 @@ defmodule World.MapSupervisor do
     |> Enum.sort
   end
 
-
   @doc false
   def init(_) do
     children = [

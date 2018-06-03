@@ -14,7 +14,7 @@ config :world, World.Repo,
   username: "clone1018",
   password: "",
   hostname: "localhost",
-  port: 5433
+  port: 5432
 
 config :world,
   ecto_repos: [World.Repo]

@@ -1,6 +1,7 @@
 defmodule World.Player do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
 
   schema "player" do
     field :name, :string
@@ -21,4 +22,10 @@ defmodule World.Player do
       # |> validate_inclusion(:age, 18..100)
       # |> unique_constraint(:name)
   end
+
+  def on_map(query, map_id) do
+    from c in query,
+    where: c.map_id == ^map_id
+  end
+
 end

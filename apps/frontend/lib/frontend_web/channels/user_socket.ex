@@ -19,8 +19,18 @@ defmodule FrontendWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket) do
-    {:ok, socket}
+  def connect(params, socket) do
+    player_id = params["player_id"] |> String.to_integer
+    result =
+      case World.Repo.get(World.Player, player_id) do
+        nil  -> %World.Player{id: player_id}
+        player -> player
+      end
+      |> World.Player.changeset
+      |> World.Repo.insert_or_update
+
+
+    {:ok, assign(socket, :player_id, player_id)}
   end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
