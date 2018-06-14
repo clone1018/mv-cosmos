@@ -47,7 +47,6 @@ defmodule FrontendWeb.MapChannel do
       })
     end)
 
-
     broadcast!(socket, "SPAWN", coords |> Map.put("player_id", socket.assigns.player_id))
 
     {:noreply, socket}
@@ -55,20 +54,19 @@ defmodule FrontendWeb.MapChannel do
 
   def handle_in("DESPAWN", %{"x" => x, "y" => y} = coords, socket) do
     players = World.Player |> World.Player.on_map(socket.map_id) |> World.Repo.all
-
-    Enum.each(players, fn(player) ->
-      push(socket, "EXIST", %{
-        player_id: player.id,
-        x: player.x,
-        y: player.y,
-        direction: player.direction,
-        move_speed: player.move_speed,
-        move_frequency: player.move_frequency,
-        character_index: player.character_index,
-        character_name: player.character_name
-      })
-    end)
-
+#
+#    Enum.each(players, fn(player) ->
+#      push(socket, "EXIST", %{
+#        player_id: player.id,
+#        x: player.x,
+#        y: player.y,
+#        direction: player.direction,
+#        move_speed: player.move_speed,
+#        move_frequency: player.move_frequency,
+#        character_index: player.character_index,
+#        character_name: player.character_name
+#      })
+#    end)
 
     broadcast!(socket, "DESPAWN", coords |> Map.put("player_id", socket.assigns.player_id))
 

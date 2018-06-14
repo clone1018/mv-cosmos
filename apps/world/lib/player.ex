@@ -18,9 +18,10 @@ defmodule World.Player do
   def changeset(player, params \\ %{}) do
     player
       |> cast(params, [:name, :map_id, :x, :y, :character_index, :character_name, :direction, :move_speed, :move_frequency])
-      # |> validate_required([:name, :email])
-      # |> validate_inclusion(:age, 18..100)
-      # |> unique_constraint(:name)
+#      |> unique_constraint(:name)
+    # |a> validate_required([:name, :email])
+    # |> validate_inclusion(:age, 18..100)
+
   end
 
   def on_map(query, map_id) do

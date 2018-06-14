@@ -21,9 +21,10 @@ defmodule FrontendWeb.UserSocket do
   # performing token verification on connect.
   def connect(params, socket) do
     player_id = params["player_id"] |> String.to_integer
+    username = params["username"]
     result =
       case World.Repo.get(World.Player, player_id) do
-        nil  -> %World.Player{id: player_id}
+        nil  -> %World.Player{id: player_id, name: username}
         player -> player
       end
       |> World.Player.changeset
