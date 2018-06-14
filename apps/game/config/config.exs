@@ -15,7 +15,7 @@ config :game, Game.Repo,
   username: "clone1018",
   password: "",
   hostname: "localhost",
-  port: 5433
+  port: 5432
 
 config :game,
   ecto_repos: [Game.Repo]
