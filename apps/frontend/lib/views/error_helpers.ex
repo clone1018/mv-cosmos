@@ -1,4 +1,4 @@
-defmodule FrontendWeb.ErrorHelpers do
+defmodule Frontend.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -25,9 +25,9 @@ defmodule FrontendWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(FrontendWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(Frontend.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(FrontendWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(Frontend.Gettext, "errors", msg, opts)
     end
   end
 end

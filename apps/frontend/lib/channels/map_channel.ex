@@ -1,4 +1,4 @@
-defmodule FrontendWeb.MapChannel do
+defmodule Frontend.MapChannel do
   use Phoenix.Channel
 
   # def join("room:lobby", message, socket) do

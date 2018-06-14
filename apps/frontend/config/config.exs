@@ -10,10 +10,10 @@ config :frontend,
   namespace: Frontend
 
 # Configures the endpoint
-config :frontend, FrontendWeb.Endpoint,
+config :frontend, Frontend.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "A5f61cw7YJrWc55lyjyq27Yb2sIYQfhDRrfhkcpx57uKAUklHawQRmdk9weE11zY",
-  render_errors: [view: FrontendWeb.ErrorView, accepts: ~w(json)],
+  render_errors: [view: Frontend.ErrorView, accepts: ~w(json)],
   pubsub: [name: Frontend.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

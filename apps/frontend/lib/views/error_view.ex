@@ -1,5 +1,5 @@
-defmodule FrontendWeb.ErrorView do
-  use FrontendWeb, :view
+defmodule Frontend.ErrorView do
+  use Frontend, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

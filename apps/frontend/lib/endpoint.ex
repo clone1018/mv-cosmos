@@ -1,7 +1,7 @@
-defmodule FrontendWeb.Endpoint do
+defmodule Frontend.Endpoint do
   use Phoenix.Endpoint, otp_app: :frontend
 
-  socket "/socket", FrontendWeb.UserSocket
+  socket "/socket", Frontend.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -35,7 +35,7 @@ defmodule FrontendWeb.Endpoint do
     key: "_frontend_key",
     signing_salt: "oFRhl4gs"
 
-  plug FrontendWeb.Router
+  plug Frontend.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

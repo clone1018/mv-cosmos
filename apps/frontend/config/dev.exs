@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :frontend, FrontendWeb.Endpoint,
+config :frontend, Frontend.Endpoint,
   http: [port: 8101],
   debug_errors: true,
   code_reloader: true,
