@@ -8,7 +8,7 @@ Path.join(["rel", "plugins", "*.exs"])
 
 use Mix.Releases.Config,
     # This sets the default release built by `mix release`
-    default_release: :mv_cosmos,
+    default_release: :cosmos,
     # This sets the default environment used by `mix release`
     default_environment: Mix.env()
 
@@ -44,7 +44,7 @@ end
 # when running `mix release`, the first release in the file
 # will be used by default
 
-release :mv_cosmos do
+release :cosmos do
   set version: "0.1.0"
   set applications: [
     :runtime_tools,

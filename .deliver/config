@@ -6,7 +6,7 @@ BUILD_AT="/home/cosmos/cosmos/builds"
 
 PRODUCTION_HOSTS="cosmos.axxim.net"
 PRODUCTION_USER="cosmos"
-DELIVER_TO="/home/cosmos/prod"
+DELIVER_TO="/home/cosmos"
 
 pre_erlang_clean_compile() {
 
