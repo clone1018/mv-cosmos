@@ -17,7 +17,9 @@ config :frontend, Frontend.Endpoint,
   load_from_system_env: true,
   url: [host: "cosmos.axxim.net", port: 8101],
   cache_static_manifest: "priv/static/cache_manifest.json",
-  version: Mix.Project.config[:version]
+  version: Mix.Project.config[:version],
+  server: true,
+  root: "."
 
 # Do not print debug messages in production
 config :logger, level: :info
