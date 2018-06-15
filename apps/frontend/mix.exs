@@ -37,6 +37,7 @@ defmodule Frontend.Mixfile do
   defp deps do
     [
       {:game, in_umbrella: true},
+      {:world, in_umbrella: true},
       {:phoenix, "~> 1.3.2"},
       {:phoenix_pubsub, "~> 1.0"},
       {:gettext, "~> 0.11"},
