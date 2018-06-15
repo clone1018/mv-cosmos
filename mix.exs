@@ -11,6 +11,15 @@ defmodule Cosmos.MixProject do
     ]
   end
 
+  # Configuration for the OTP application.
+  #
+  # Type `mix help compile.app` for more information.
+  def application do
+    [
+      extra_applications: [:frontend]
+    ]
+  end
+
   # Dependencies listed here are available only for this
   # project and cannot be accessed from applications inside
   # the apps folder.
@@ -18,7 +27,9 @@ defmodule Cosmos.MixProject do
   # Run "mix help deps" for examples and options.
   defp deps do
     [
-      {:excoveralls, "~> 0.6"}
+      {:excoveralls, "~> 0.6"},
+      {:edeliver, "~> 1.4.0"},
+      {:distillery, ">= 0.8.0", warn_missing: false}
     ]
   end
 end

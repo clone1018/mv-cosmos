@@ -44,5 +44,5 @@ defmodule Frontend.UserSocket do
   #     Frontend.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
-  def id(_socket), do: nil
+  def id(socket), do: "player_socket:#{socket.assigns.player_id}"
 end

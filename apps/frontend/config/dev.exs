@@ -11,7 +11,8 @@ config :frontend, Frontend.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: []
+  watchers: [],
+  game_path: "~/Projects/clone1018/mv-mmo-test"
 
 # ## SSL Support
 #

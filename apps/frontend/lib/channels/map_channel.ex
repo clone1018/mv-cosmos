@@ -31,6 +31,19 @@ defmodule Frontend.MapChannel do
     end
   end
 
+  def terminate(_reason, socket) do
+    player = World.Player |> World.Repo.get(socket.assigns.player_id)
+
+    changeset = World.Player.changeset(player, %{
+      map_id: nil,
+      x: 0,
+      y: 0,
+    })
+    {:ok, _person} = World.Repo.update(changeset)
+
+    {:ok, socket}
+  end
+
   def handle_in("SPAWN", %{"x" => x, "y" => y} = coords, socket) do
     otherPlayersOnMap = World.Player |> World.Player.on_map(socket.map_id) |> World.Repo.all
 

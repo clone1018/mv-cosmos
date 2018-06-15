@@ -1,0 +1,21 @@
+APP="cosmos"
+
+BUILD_HOST="cosmos.axxim.net"
+BUILD_USER="cosmos"
+BUILD_AT="/home/cosmos/cosmos/builds"
+
+PRODUCTION_HOSTS="cosmos.axxim.net"
+PRODUCTION_USER="cosmos"
+DELIVER_TO="/home/cosmos/prod"
+
+pre_erlang_clean_compile() {
+  status "Running phoenix.digest"
+  __sync_remote "
+    [ -f ~/.profile ] && source ~/.profile
+    set -e
+
+    cd '$BUILD_AT'
+    APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
+  "
+}
+
