@@ -9,13 +9,6 @@ PRODUCTION_USER="cosmos"
 DELIVER_TO="/home/cosmos/prod"
 
 pre_erlang_clean_compile() {
-  status "Running phoenix.digest"
-  __sync_remote "
-    [ -f ~/.profile ] && source ~/.profile
-    set -e
 
-    cd '$BUILD_AT'
-    APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
-  "
 }
 
