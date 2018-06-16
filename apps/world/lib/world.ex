@@ -10,9 +10,9 @@ defmodule World do
     children = [
       World.Repo,
       # supervisor(Registry, [:unique, :player_registry], id: :player_worker),
-#      supervisor(Registry, [:unique, :map_registry], id: :map_worker),
+      supervisor(Registry, [:unique, :map_registry], id: :map_worker),
       # supervisor(World.PlayerSupervisor, []),
-#      supervisor(World.MapSupervisor, []),
+      supervisor(World.MapSupervisor, []),
       # Plug.Adapters.Cowboy.child_spec(
       #   scheme: :http,
       #   plug: World.Http.Router,
